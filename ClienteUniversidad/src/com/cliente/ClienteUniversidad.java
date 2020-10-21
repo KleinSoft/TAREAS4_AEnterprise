@@ -25,9 +25,14 @@ public class ClienteUniversidad {
 			
 			AreaBeanRemote areaBean = (AreaBeanRemote) InitialContext.doLookup("UniversidadEJB/AreaBean!com.servicios.AreaBeanRemote");
 			
+			/* PRIMERO CREAR MATERIALES
+			 * LUEGO SALONES y AGREGARLES MATERIALES
+			 * 
+			 * UNA VEZ HECHO ESO DESCOMENTAR EL AGREGADO DE SALONES A AREA
+			 * */
 			
 			/*AB Area*/
-			/*Primer Area*/
+			/*Primer Area--------------------------------------------------------------*/
 			Area areaLTI = new Area();
 			areaLTI.setId(1L);
 			areaLTI.setNombre("Área LTI");
@@ -42,10 +47,10 @@ public class ClienteUniversidad {
 			
 			//areaLTI.setSalones(salonesLTI);
 			
-			/*Segunda Area*/
+			/*Segunda Area--------------------------------------------------------------*/
 			Area areaBiomedicas = new Area();
-			areaLTI.setId(2L);
-			areaLTI.setNombre("Área Biomédicas");
+			areaBiomedicas.setId(2L);
+			areaBiomedicas.setNombre("Área Biomédicas");
 			
 			
 			/*ACA VAN SALONES CREADOS Arriba*/
@@ -57,10 +62,10 @@ public class ClienteUniversidad {
 			
 			//areaBiomedicas.setSalones(salonesBiomedica);
 			
-			/*Tercer Area*/
+			/*Tercer Area--------------------------------------------------------------*/
 			Area areaIAgro = new Area();
-			areaLTI.setId(3L);
-			areaLTI.setNombre("Área IAgro");
+			areaIAgro.setId(3L);
+			areaIAgro.setNombre("Área IAgro");
 			
 			
 			/*ACA VAN SALONES CREADOS Arriba*/
@@ -71,6 +76,8 @@ public class ClienteUniversidad {
 			//salonesIAgro.add(galponMateriales2)
 
 			//areaIAgro.setSalones(salonesIAgro);
+			
+			/*ABM--------------------------------------------------------------*/
 			
 			ArrayList<Area> areasABM = new ArrayList<>();
 			areasABM.add(areaLTI);
@@ -86,7 +93,32 @@ public class ClienteUniversidad {
 			} catch(ServiciosException e) {
 				System.out.println(e.getMessage()); 
 			}
-
+			
+			/*MODIFICACION AreaLTI*/
+						
+			try {
+				String viejoNombre = areaLTI.getNombre();
+				
+				areaLTI.setNombre("ÁreaLTIV2.0");
+				areaBean.actualizar(areaLTI);
+				
+				System.out.println("Se ha actualizado exitosamente el área " + viejoNombre +  " a " + areaLTI.getNombre());
+			} catch(ServiciosException e) {
+				System.out.println(e.getMessage()); 
+			}
+			
+			/*BAJA AreaIAgro*/
+			
+			try {
+				String viejoNombre = areaIAgro.getNombre();
+				
+				areaBean.borrar(areaIAgro.getId());
+				
+				System.out.println("Se ha borrado existosamente el área: " + viejoNombre);
+			} catch(ServiciosException e) {
+				System.out.println(e.getMessage()); 
+			}
+			
 	}
 	
 
