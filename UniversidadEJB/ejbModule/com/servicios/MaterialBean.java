@@ -27,8 +27,8 @@ public class MaterialBean implements MaterialBeanRemote {
     @Override
     public void crear(Material material) throws ServiciosException {
      try{
-    em.persist(material);
-    em.flush();
+	    em.persist(material);
+	    em.flush();
      }catch(PersistenceException e){
     throw new ServiciosException("No se pudo crear el material");
      }

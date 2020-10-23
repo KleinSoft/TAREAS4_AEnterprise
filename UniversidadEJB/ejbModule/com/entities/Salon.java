@@ -29,7 +29,7 @@ public class Salon implements Serializable {
 	@Column
 	private boolean practica;
 	
-	@ManyToOne(optional=false)
+	//@ManyToOne(optional=false)
 	private Tipo tipo;
 	
 	@OneToMany

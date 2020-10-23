@@ -29,99 +29,80 @@ public class ClienteUniversidad {
 		//Creamos un material
 		Material placaArduino = new Material();
 		//Seteamos los valores
-		placaArduino.setId(1L);
 		placaArduino.setNombre("placa Arduino");
 		placaArduino.setDescripcion("placa de Arduino");
 
 		//Repetimos todos los pasos para los siguientes materiales
 
 		Material imp3D = new Material();
-		imp3D.setId(2L);
 		imp3D.setNombre("impresora 3D");
 		imp3D.setDescripcion("impresora 3D");
 
 		Material tv4 = new Material();
-		tv4.setId(3L);
 		tv4.setNombre("televisor 4");
 		tv4.setDescripcion("televisor 4");
 
 		Material pizzarraElectronica = new Material();
-		pizzarraElectronica.setId(4L);
 		pizzarraElectronica.setNombre("pizzarra Electronica");
 		pizzarraElectronica.setDescripcion("pizzarra Electronica");
 
 		Material servidorBD = new Material();
-		servidorBD.setId(5L);
 		servidorBD.setNombre("servidor BD");
 		servidorBD.setDescripcion("servidor BD");
 
 		Material servidorPRT = new Material();
-		servidorPRT.setId(6L);
 		servidorPRT.setNombre("servidor PRT");
 		servidorPRT.setDescripcion("servidor PRT");
 
 		Material servidorAPP = new Material();
-		servidorAPP.setId(7L);
 		servidorAPP.setNombre("servidor APP");
 		servidorAPP.setDescripcion("servidor APP");
 
 		Material microscopio = new Material();
-		microscopio.setId(8L);
 		microscopio.setNombre("microscopio");
 		microscopio.setDescripcion("microscopio");
 
 		Material tijeras = new Material();
-		tijeras.setId(9L);
 		tijeras.setNombre("tijeras");
 		tijeras.setDescripcion("tijeras");
 
 		Material televisor21 = new Material();
-		televisor21.setId(10L);
 		televisor21.setNombre("televisor 21");
 		televisor21.setDescripcion("televisor 21");
 
 		Material canion = new Material();
-		canion.setId(11L);
 		canion.setNombre("cañon");
 		canion.setDescripcion("cañon");
 
 		Material panelMovil = new Material();
-		panelMovil.setId(12L);
 		panelMovil.setNombre("panel Movil");
 		panelMovil.setDescripcion("panel Movil");
 
 		Material mesaOperaciones = new Material();
-		mesaOperaciones.setId(13L);
 		mesaOperaciones.setNombre("mesa de operaciones");
 		mesaOperaciones.setDescripcion("mesa de operaciones");
 
 		Material maqueta1 = new Material();
-		maqueta1.setId(14L);
 		maqueta1.setNombre("maqueta 1");
 		maqueta1.setDescripcion("maqueta 1");
 
 		Material maqueta2 = new Material();
-		maqueta2.setId(15L);
 		maqueta2.setNombre("maqueta 2");
 		maqueta2.setDescripcion("maqueta 2");
 
 		Material televisor48 = new Material();
-		televisor48.setId(16L);
 		televisor48.setNombre("televisor 48");
 		televisor48.setDescripcion("televisor 48");
 
 		Material mesaTrabajo = new Material();
-		mesaTrabajo.setId(17L);
 		mesaTrabajo.setNombre("mesa de trabajo");
 		mesaTrabajo.setDescripcion("mesa de trabajo");
 
 		Material tractor = new Material();
-		tractor.setId(18L);
 		tractor.setNombre("tractor");
 		tractor.setDescripcion("tractor");
 
 		Material molino = new Material();
-		molino.setId(19L);
 		molino.setNombre("molino");
 		molino.setDescripcion("molino");
 
@@ -201,7 +182,6 @@ public class ClienteUniversidad {
 
 		//----------------------------------------------------------------------
 			
-			// Creamos el Bean de salon
 			SalonBeanRemote salonBean = (SalonBeanRemote) InitialContext.doLookup("UniversidadEJB/SalonBean!com.servicios.SalonBeanRemote");
 			
 			//desde la linea 211 hasta la linea 327 creamos los materiales
@@ -211,7 +191,6 @@ public class ClienteUniversidad {
 			//Creamos un salon
 			Salon salonRobotica = new Salon();
 			//Seteamos los valores de sus propiedades
-			salonRobotica.setId(1L);
 			salonRobotica.setNombre("Robotica");
 			salonRobotica.setCapacidadMaxima(100);
 			//Creamos una lista de los materiales que pertenecen al salon
@@ -224,7 +203,6 @@ public class ClienteUniversidad {
 			salonRobotica.setTipo(Tipo.LABORATORIO);
 
 			Salon aula3 = new Salon();
-			aula3.setId(2L);
 			aula3.setNombre("Aula de clases 3");
 			aula3.setCapacidadMaxima(100);
 			ArrayList<Material> aula3l = new ArrayList<>();
@@ -235,7 +213,6 @@ public class ClienteUniversidad {
 			aula3.setTipo(Tipo.COMUN);
 
 			Salon salaServidores = new Salon();
-			salaServidores.setId(3L);
 			salaServidores.setNombre("Sala de servidores");
 			salaServidores.setCapacidadMaxima(100);
 			ArrayList<Material> salaServidoresl = new ArrayList<>();
@@ -247,7 +224,6 @@ public class ClienteUniversidad {
 			salaServidores.setTipo(Tipo.COMUN);
 
 			Salon lab1 = new Salon();
-			lab1.setId(4L);
 			lab1.setNombre("Laboratorio 1");
 			lab1.setCapacidadMaxima(100);
 			ArrayList<Material> lab1l = new ArrayList<>();
@@ -258,7 +234,6 @@ public class ClienteUniversidad {
 			lab1.setTipo(Tipo.LABORATORIO);
 
 			Salon aula2 = new Salon();
-			aula2.setId(5L);
 			aula2.setNombre("Aula de clases 2");
 			aula2.setCapacidadMaxima(100);
 			ArrayList<Material> aula2l = new ArrayList<>();
@@ -269,7 +244,6 @@ public class ClienteUniversidad {
 			aula2.setTipo(Tipo.COMUN);
 
 			Salon depositoMat = new Salon();
-			depositoMat.setId(6L);
 			depositoMat.setNombre("Depósito de materiales");
 			depositoMat.setCapacidadMaxima(100);
 			ArrayList<Material> depositoMatl = new ArrayList<>();
@@ -280,7 +254,6 @@ public class ClienteUniversidad {
 			depositoMat.setTipo(Tipo.DEPOSITO);
 
 			Salon lab2 = new Salon();
-			lab2.setId(7L);
 			lab2.setNombre("Laboratorio 2");
 			lab2.setCapacidadMaxima(100);
 			ArrayList<Material> lab2l = new ArrayList<>();
@@ -291,7 +264,6 @@ public class ClienteUniversidad {
 			lab2.setTipo(Tipo.LABORATORIO);
 
 			Salon aula1 = new Salon();
-			aula1.setId(8L);
 			aula1.setNombre("Aula de clases 1");
 			aula1.setCapacidadMaxima(100);
 			ArrayList<Material> aula1l = new ArrayList<>();
@@ -302,7 +274,6 @@ public class ClienteUniversidad {
 			aula1.setTipo(Tipo.COMUN);
 
 			Salon galponMateriales = new Salon();
-			galponMateriales.setId(9L);
 			galponMateriales.setNombre("Galpón de materiales");
 			galponMateriales.setCapacidadMaxima(100);
 			ArrayList<Material> galponMaterialesl = new ArrayList<>();
@@ -383,7 +354,6 @@ public class ClienteUniversidad {
 			/*AB Area*/
 			/*Primer Area--------------------------------------------------------------*/
 			Area areaLTI = new Area();
-			areaLTI.setId(1L);
 			areaLTI.setNombre("Area LTI");
 			
 			
@@ -398,7 +368,6 @@ public class ClienteUniversidad {
 			
 			/*Segunda Area--------------------------------------------------------------*/
 			Area areaBiomedicas = new Area();
-			areaBiomedicas.setId(2L);
 			areaBiomedicas.setNombre("Area Biomedicas");
 			
 			
@@ -413,7 +382,6 @@ public class ClienteUniversidad {
 			
 			/*Tercer Area--------------------------------------------------------------*/
 			Area areaIAgro = new Area();
-			areaIAgro.setId(3L);
 			areaIAgro.setNombre("Area IAgro");
 			
 			
