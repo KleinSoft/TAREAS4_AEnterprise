@@ -145,40 +145,6 @@ public class ClienteUniversidad {
 			System.out.println(e.getMessage()); 
 		}
 
-		//Modificacion de material
-		try {
-			//Insertamos el nombre en una variable para ser utilizado luego
-			String viejoNombre1 = placaArduino.getNombre();
-			
-			//Seteamos un nuevo nombre para el material y lo actualizamos
-			placaArduino.setNombre("placaArduinoV2.0");
-			materialBean.actualizar(placaArduino);
-			
-			//Se imprime en consola que el cambio se ha realizado correctamente 
-			System.out.println("Se ha actualizado exitosamente el material " + viejoNombre1 +  " a " + placaArduino.getNombre());
-
-			//En caso de que se viole alguna restriccion al cambiar
-		} catch(ServiciosException e) {
-			//Se imprime un mensaje de error
-			System.out.println(e.getMessage()); 
-		}
-		
-		// Eliminacion de un material
-		try {
-			//Guardamos el nombre en una variable para usar despues
-			String viejoNombre1 = placaArduino.getNombre();
-			
-			//Se borra el material 
-			materialBean.borrar(placaArduino.getId());
-			
-			//Se imprime mensaje de que se ha borrado exitosamente
-			System.out.println("Se ha borrado existosamente el material: " + viejoNombre1);
-
-			//En caso de que se viole alguna restriccion al borrar
-		} catch(ServiciosException e) {
-			//Se imprime un mensaje de error
-			System.out.println(e.getMessage()); 
-		}
 
 		//----------------------------------------------------------------------
 			
@@ -309,43 +275,6 @@ public class ClienteUniversidad {
 				System.out.println(e.getMessage()); 
 			}
 
-			//Modificacion de salon
-			try {
-				//Se guarda el nombre del salon en una variable
-				String viejoNombre1 = salonRobotica.getNombre();
-				
-				//Seteamos el nuevo nombre
-				salonRobotica.setNombre("roboticaV2.0");
-				//Actualizamos el salon
-				salonBean.actualizar(salonRobotica);
-				
-				//Imprimimos en consola que el salon ha sido modificado exitosamente
-				System.out.println("Se ha actualizado exitosamente el salon " + viejoNombre1 +  " a " + salonRobotica.getNombre());
-
-			//En caso de que no se cumpla con alguna condicion	
-			} catch(ServiciosException e) {
-				//Se imprime un mensaje de error
-				System.out.println(e.getMessage()); 
-			}
-			
-			//Eliminacion o baja del salon
-			try {
-				//Guardamos el nombre en una variable para utilizarlo luego
-				String viejoNombre = salonRobotica.getNombre();
-				
-				//Eliminamos el salon
-				salonBean.borrar(salonRobotica.getId());
-				
-				//Se imprime en pantalla que se ha borrado de manera exitosa
-				System.out.println("Se ha borrado existosamente el salon: " + viejoNombre);
-			
-			// En caso de que no se cumpla alguna condicion o se viole alguna restriccion
-			} catch(ServiciosException e) {
-				// Se imprime mensaje de error
-				System.out.println(e.getMessage()); 
-			}
-
-
 			//-----------------------------------------------------------------
 
 
@@ -411,31 +340,6 @@ public class ClienteUniversidad {
 				System.out.println(e.getMessage()); 
 			}
 			
-			/*MODIFICACION AreaLTI*/
-						
-			try {
-				String viejoNombre2 = areaLTI.getNombre();
-				
-				areaLTI.setNombre("�reaLTIV2.0");
-				areaBean.actualizar(areaLTI);
-				
-				System.out.println("Se ha actualizado exitosamente el Area " + viejoNombre2 +  " a " + areaLTI.getNombre());
-			} catch(ServiciosException e) {
-				System.out.println(e.getMessage()); 
-			}
-			
-			/*BAJA AreaIAgro*/
-			
-			try {
-				String viejoNombre2 = areaIAgro.getNombre();
-				
-				areaBean.borrar(areaIAgro.getId());
-				
-				System.out.println("Se ha borrado existosamente el Area: " + viejoNombre2);
-			} catch(ServiciosException e) {
-				System.out.println(e.getMessage()); 
-			}
-			
 			/*LISTADOS*/
 			
 			
@@ -458,9 +362,106 @@ public class ClienteUniversidad {
 					}
 				}
 			}
+			List<Material> materialesEnBD = materialBean.obtenerTodos();
+			List<Salon> salonesEnBD = salonBean.obtenerTodos();
+			/*MODIFICACIONES Y BAJAS*/
+			 
+			//Modificacion de material
+			try {
+				//Insertamos el nombre en una variable para ser utilizado luego
+				String viejoNombre1 = materialesEnBD.get(0).getNombre();
+				
+				//Seteamos un nuevo nombre para el material y lo actualizamos
+				materialesEnBD.get(0).setNombre(viejoNombre1 + "V2");
+				materialBean.actualizar(placaArduino);
+				
+				//Se imprime en consola que el cambio se ha realizado correctamente 
+				System.out.println("Se ha actualizado exitosamente el material " + viejoNombre1 +  " a " + materialesEnBD.get(0).getNombre());
+
+				//En caso de que se viole alguna restriccion al cambiar
+			} catch(ServiciosException e) {
+				//Se imprime un mensaje de error
+				System.out.println(e.getMessage()); 
+			}
+			
+			// Eliminacion de un material
+			try {
+				//Guardamos el nombre en una variable para usar despues
+				String viejoNombre1 = materialesEnBD.get(0).getNombre();
+				
+				//Se borra el material 
+				materialBean.borrar(materialesEnBD.get(0).getId());
+				
+				//Se imprime mensaje de que se ha borrado exitosamente
+				System.out.println("Se ha borrado existosamente el material: " + viejoNombre1);
+
+				//En caso de que se viole alguna restriccion al borrar
+			} catch(ServiciosException e) {
+				//Se imprime un mensaje de error
+				System.out.println(e.getMessage()); 
+			}
+
+			//Modificacion de salon
+			try {
+				//Se guarda el nombre del salon en una variable
+				String viejoNombre1 = salonesEnBD.get(0).getNombre();
+				
+				//Seteamos un nuevo nombre para el salon y lo actualizamos
+				salonesEnBD.get(0).setNombre(viejoNombre1 + "V2");
+				salonBean.actualizar(salonesEnBD.get(0));
+				
+				//Se imprime en consola que el cambio se ha realizado correctamente 
+				System.out.println("Se ha actualizado exitosamente el salon " + viejoNombre1 +  " a " + salonesEnBD.get(0).getNombre());
+
+			//En caso de que no se cumpla con alguna condicion	
+			} catch(ServiciosException e) {
+				//Se imprime un mensaje de error
+				System.out.println(e.getMessage()); 
+			}
+			
+			//Eliminacion o baja del salon
+			try {
+				//Guardamos el nombre en una variable para utilizarlo luego
+				String viejoNombre1 = salonesEnBD.get(0).getNombre();
+				
+				//Eliminamos el salon
+				salonBean.borrar(salonesEnBD.get(0).getId());
+				
+				//Se imprime en pantalla que se ha borrado de manera exitosa
+				System.out.println("Se ha borrado existosamente el salon: " + viejoNombre1);
+			
+			// En caso de que no se cumpla alguna condicion o se viole alguna restriccion
+			} catch(ServiciosException e) {
+				// Se imprime mensaje de error
+				System.out.println(e.getMessage()); 
+			}
 			
 			
+			/*MODIFICACION AreaLTI*/
+						
+			try {
+				String viejoNombre1 = areasEnBD.get(0).getNombre();
+				
+				areasEnBD.get(0).setNombre(viejoNombre1 + "V2");
+				areaBean.actualizar(areasEnBD.get(0));
+				
+				System.out.println("Se ha actualizado exitosamente el Area " + viejoNombre1 +  " a " + areasEnBD.get(0));
+			} catch(ServiciosException e) {
+				System.out.println(e.getMessage()); 
+			}
 			
+			/*BAJA AreaIAgro*/
+			
+			try {
+				String viejoNombre1 = areasEnBD.get(0).getNombre();
+				
+				areaBean.borrar(areasEnBD.get(0).getId());
+				
+				System.out.println("Se ha borrado existosamente el Area: " + viejoNombre1);
+			} catch(ServiciosException e) {
+				System.out.println(e.getMessage()); 
+			}
+
 	}
 	
 
