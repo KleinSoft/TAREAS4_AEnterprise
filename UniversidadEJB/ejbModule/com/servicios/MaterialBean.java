@@ -57,7 +57,7 @@ public class MaterialBean implements MaterialBeanRemote {
 	
 	@Override
 	public List<Material> obtenerTodos() {
-	 TypedQuery<Material> query = em.createQuery("SELECT m FROM MATERIALES m",Material.class);
+	 TypedQuery<Material> query = em.createQuery("SELECT m FROM Material m",Material.class);
 	 return query.getResultList();
 	} 
 }

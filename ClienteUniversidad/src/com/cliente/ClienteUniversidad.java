@@ -71,8 +71,8 @@ public class ClienteUniversidad {
 		televisor21.setDescripcion("televisor 21");
 
 		Material canion = new Material();
-		canion.setNombre("cañon");
-		canion.setDescripcion("cañon");
+		canion.setNombre("ca�on");
+		canion.setDescripcion("ca�on");
 
 		Material panelMovil = new Material();
 		panelMovil.setNombre("panel Movil");
@@ -210,7 +210,7 @@ public class ClienteUniversidad {
 			aula2.setTipo(Tipo.COMUN);
 
 			Salon depositoMat = new Salon();
-			depositoMat.setNombre("Depósito de materiales");
+			depositoMat.setNombre("Deposito de materiales");
 			depositoMat.setCapacidadMaxima(100);
 			ArrayList<Material> depositoMatl = new ArrayList<>();
 			depositoMatl.add(panelMovil);
@@ -240,7 +240,7 @@ public class ClienteUniversidad {
 			aula1.setTipo(Tipo.COMUN);
 
 			Salon galponMateriales = new Salon();
-			galponMateriales.setNombre("Galpón de materiales");
+			galponMateriales.setNombre("Galpon de materiales");
 			galponMateriales.setCapacidadMaxima(100);
 			ArrayList<Material> galponMaterialesl = new ArrayList<>();
 			galponMaterialesl.add(tractor);
@@ -362,6 +362,7 @@ public class ClienteUniversidad {
 					}
 				}
 			}
+			
 			List<Material> materialesEnBD = materialBean.obtenerTodos();
 			List<Salon> salonesEnBD = salonBean.obtenerTodos();
 			/*MODIFICACIONES Y BAJAS*/
@@ -369,10 +370,10 @@ public class ClienteUniversidad {
 			//Modificacion de material
 			try {
 				//Insertamos el nombre en una variable para ser utilizado luego
-				String viejoNombre1 = materialesEnBD.get(0).getNombre();
+				String viejoNombre1 = materialesEnBD.get(1).getNombre();
 				
 				//Seteamos un nuevo nombre para el material y lo actualizamos
-				materialesEnBD.get(0).setNombre(viejoNombre1 + "V2");
+				materialesEnBD.get(1).setNombre(viejoNombre1 + "V2");
 				materialBean.actualizar(placaArduino);
 				
 				//Se imprime en consola que el cambio se ha realizado correctamente 
@@ -387,10 +388,10 @@ public class ClienteUniversidad {
 			// Eliminacion de un material
 			try {
 				//Guardamos el nombre en una variable para usar despues
-				String viejoNombre1 = materialesEnBD.get(0).getNombre();
+				String viejoNombre1 = materialesEnBD.get(1).getNombre();
 				
 				//Se borra el material 
-				materialBean.borrar(materialesEnBD.get(0).getId());
+				materialBean.borrar(materialesEnBD.get(1).getId());
 				
 				//Se imprime mensaje de que se ha borrado exitosamente
 				System.out.println("Se ha borrado existosamente el material: " + viejoNombre1);
@@ -404,14 +405,14 @@ public class ClienteUniversidad {
 			//Modificacion de salon
 			try {
 				//Se guarda el nombre del salon en una variable
-				String viejoNombre1 = salonesEnBD.get(0).getNombre();
+				String viejoNombre1 = salonesEnBD.get(1).getNombre();
 				
 				//Seteamos un nuevo nombre para el salon y lo actualizamos
-				salonesEnBD.get(0).setNombre(viejoNombre1 + "V2");
-				salonBean.actualizar(salonesEnBD.get(0));
+				salonesEnBD.get(1).setNombre(viejoNombre1 + "V2");
+				salonBean.actualizar(salonesEnBD.get(1));
 				
 				//Se imprime en consola que el cambio se ha realizado correctamente 
-				System.out.println("Se ha actualizado exitosamente el salon " + viejoNombre1 +  " a " + salonesEnBD.get(0).getNombre());
+				System.out.println("Se ha actualizado exitosamente el salon " + viejoNombre1 +  " a " + salonesEnBD.get(1).getNombre());
 
 			//En caso de que no se cumpla con alguna condicion	
 			} catch(ServiciosException e) {
@@ -422,10 +423,10 @@ public class ClienteUniversidad {
 			//Eliminacion o baja del salon
 			try {
 				//Guardamos el nombre en una variable para utilizarlo luego
-				String viejoNombre1 = salonesEnBD.get(0).getNombre();
+				String viejoNombre1 = salonesEnBD.get(1).getNombre();
 				
 				//Eliminamos el salon
-				salonBean.borrar(salonesEnBD.get(0).getId());
+				salonBean.borrar(salonesEnBD.get(1).getId());
 				
 				//Se imprime en pantalla que se ha borrado de manera exitosa
 				System.out.println("Se ha borrado existosamente el salon: " + viejoNombre1);
@@ -440,12 +441,12 @@ public class ClienteUniversidad {
 			/*MODIFICACION AreaLTI*/
 						
 			try {
-				String viejoNombre1 = areasEnBD.get(0).getNombre();
+				String viejoNombre1 = areasEnBD.get(1).getNombre();
 				
-				areasEnBD.get(0).setNombre(viejoNombre1 + "V2");
-				areaBean.actualizar(areasEnBD.get(0));
+				areasEnBD.get(1).setNombre(viejoNombre1 + "V2");
+				areaBean.actualizar(areasEnBD.get(1));
 				
-				System.out.println("Se ha actualizado exitosamente el Area " + viejoNombre1 +  " a " + areasEnBD.get(0));
+				System.out.println("Se ha actualizado exitosamente el Area " + viejoNombre1 +  " a " + areasEnBD.get(1));
 			} catch(ServiciosException e) {
 				System.out.println(e.getMessage()); 
 			}
@@ -453,9 +454,9 @@ public class ClienteUniversidad {
 			/*BAJA AreaIAgro*/
 			
 			try {
-				String viejoNombre1 = areasEnBD.get(0).getNombre();
+				String viejoNombre1 = areasEnBD.get(1).getNombre();
 				
-				areaBean.borrar(areasEnBD.get(0).getId());
+				areaBean.borrar(areasEnBD.get(1).getId());
 				
 				System.out.println("Se ha borrado existosamente el Area: " + viejoNombre1);
 			} catch(ServiciosException e) {

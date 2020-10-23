@@ -5,14 +5,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
 
 /**
  * Entity implementation class for Entity: area
  *
  */
 @Entity
+@Table(name="AREAS")
 public class Area implements Serializable {
 
 	
@@ -25,7 +24,8 @@ public class Area implements Serializable {
 	@Column
 	private String nombre;
 	
-	@OneToMany
+	@OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+	
 	private List<Salon> salones = new ArrayList<>();
 	
 	

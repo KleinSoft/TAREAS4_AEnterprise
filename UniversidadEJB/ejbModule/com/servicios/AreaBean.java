@@ -7,6 +7,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceException;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 import com.entities.Area;
@@ -56,7 +57,8 @@ public class AreaBean implements AreaBeanRemote {
 	
 	@Override
 	public List<Area> obtenerTodos() {
-	 TypedQuery<Area> query = em.createQuery("SELECT a FROM AREAS a", Area.class);
-	 return query.getResultList();
+		
+		TypedQuery<Area> query = em.createQuery("SELECT a FROM Area a", Area.class);
+		return query.getResultList();
 	} 
 }

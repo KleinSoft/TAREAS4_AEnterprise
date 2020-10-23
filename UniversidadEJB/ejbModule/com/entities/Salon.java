@@ -5,14 +5,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 /**
  * Entity implementation class for Entity: Salon
  *
  */
 @Entity
+@Table(name="SALONES")
 public class Salon implements Serializable {
 
 	
@@ -29,10 +28,10 @@ public class Salon implements Serializable {
 	@Column
 	private boolean practica;
 	
-	//@ManyToOne(optional=false)
+	
 	private Tipo tipo;
 	
-	@OneToMany
+	@OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
 	private List<Material> materiales = new ArrayList<>();
 	
 	public List<Material> getMateriales() {

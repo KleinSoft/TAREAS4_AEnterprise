@@ -57,7 +57,7 @@ public class SalonBean implements SalonBeanRemote {
 	
 	@Override
 	public List<Salon> obtenerTodos() {
-	 TypedQuery<Salon> query = em.createQuery("SELECT s FROM SALONES s",Salon.class);
+	 TypedQuery<Salon> query = em.createQuery("SELECT s FROM Salon s",Salon.class);
 	 return query.getResultList();
 	} 
 }
