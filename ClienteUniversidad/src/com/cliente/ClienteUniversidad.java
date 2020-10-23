@@ -1,6 +1,7 @@
 package com.cliente;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -8,11 +9,11 @@ import javax.naming.NamingException;
 import com.entities.Area;
 import com.entities.Material;
 import com.entities.Salon;
+import com.entities.Tipo;
 import com.exceptions.ServiciosException;
 import com.servicios.AreaBeanRemote;
 import com.servicios.MaterialBeanRemote;
 import com.servicios.SalonBeanRemote;
-import com.sun.tools.javac.util.List;
 
 public class ClienteUniversidad {
 
@@ -220,9 +221,7 @@ public class ClienteUniversidad {
 			salonRobotical.add(imp3D);
 			salonRobotica.setMateriales(salonRobotical);
 			salonRobotica.setPractica(true);
-			//robotica.setTipo(?);
-			
-			
+			salonRobotica.setTipo(Tipo.LABORATORIO);
 
 			Salon aula3 = new Salon();
 			aula3.setId(2L);
@@ -233,9 +232,7 @@ public class ClienteUniversidad {
 			aula3l.add(pizzarraElectronica);
 			aula3.setMateriales(aula3l);		
 			aula3.setPractica(true);
-			//aula3.setTipo(?);
-
-			
+			aula3.setTipo(Tipo.COMUN);
 
 			Salon salaServidores = new Salon();
 			salaServidores.setId(3L);
@@ -247,9 +244,7 @@ public class ClienteUniversidad {
 			salaServidoresl.add(servidorAPP);
 			salaServidores.setMateriales(salaServidoresl);
 			salaServidores.setPractica(true);
-			//salaServidores.setTipo(?);
-
-			
+			salaServidores.setTipo(Tipo.COMUN);
 
 			Salon lab1 = new Salon();
 			lab1.setId(4L);
@@ -260,9 +255,7 @@ public class ClienteUniversidad {
 			lab1l.add(tijeras);
 			lab1.setMateriales(lab1l);
 			lab1.setPractica(true);
-			//lab1.setTipo(?);
-
-			
+			lab1.setTipo(Tipo.LABORATORIO);
 
 			Salon aula2 = new Salon();
 			aula2.setId(5L);
@@ -273,8 +266,7 @@ public class ClienteUniversidad {
 			aula2l.add(canion);
 			aula2.setMateriales(aula2l);
 			aula2.setPractica(true);
-			//robotica.setTipo(?);
-
+			aula2.setTipo(Tipo.COMUN);
 
 			Salon depositoMat = new Salon();
 			depositoMat.setId(6L);
@@ -285,9 +277,7 @@ public class ClienteUniversidad {
 			depositoMatl.add(mesaOperaciones);
 			depositoMat.setMateriales(depositoMatl);
 			depositoMat.setPractica(true);
-			//robotica.setTipo(?);
-
-			
+			depositoMat.setTipo(Tipo.DEPOSITO);
 
 			Salon lab2 = new Salon();
 			lab2.setId(7L);
@@ -298,9 +288,7 @@ public class ClienteUniversidad {
 			lab2l.add(maqueta2);
 			lab2.setMateriales(lab2l);
 			lab2.setPractica(true);
-			//lab2.setTipo(?);
-
-			
+			lab2.setTipo(Tipo.LABORATORIO);
 
 			Salon aula1 = new Salon();
 			aula1.setId(8L);
@@ -311,9 +299,7 @@ public class ClienteUniversidad {
 			aula1l.add(mesaTrabajo);
 			aula1.setMateriales(aula1l);
 			aula1.setPractica(true);
-			//robotica.setTipo(?);
-
-			
+			aula1.setTipo(Tipo.COMUN);
 
 			Salon galponMateriales = new Salon();
 			galponMateriales.setId(9L);
@@ -324,9 +310,7 @@ public class ClienteUniversidad {
 			galponMaterialesl.add(molino);
 			galponMateriales.setMateriales(galponMaterialesl);
 			galponMateriales.setPractica(true);
-			//robotica.setTipo(?);
-
-			
+			galponMateriales.setTipo(Tipo.DEPOSITO);
 
 			//Se crea una lista de Salones y se agregan los salones a la lista
 			ArrayList<Salon> salonesABM = new ArrayList<>();
@@ -395,58 +379,52 @@ public class ClienteUniversidad {
 
 
 			AreaBeanRemote areaBean = (AreaBeanRemote) InitialContext.doLookup("UniversidadEJB/AreaBean!com.servicios.AreaBeanRemote");
-			
-			/* PRIMERO CREAR MATERIALES
-			 * LUEGO SALONES y AGREGARLES MATERIALES
-			 * 
-			 * UNA VEZ HECHO ESO DESCOMENTAR EL AGREGADO DE SALONES A AREA
-			 * */
-			
+						
 			/*AB Area*/
 			/*Primer Area--------------------------------------------------------------*/
 			Area areaLTI = new Area();
 			areaLTI.setId(1L);
-			areaLTI.setNombre("�rea LTI");
+			areaLTI.setNombre("Area LTI");
 			
 			
 			/*ACA VAN SALONES CREADOS Arriba*/
 			ArrayList<Salon> salonesLTI = new ArrayList<>();
 			
-			//salonesLTI.add(salonRobotica)
-			//salonesLTI.add(aula3)
-			//salonesLTI.add(salaServidores)
+			salonesLTI.add(salonRobotica);
+			salonesLTI.add(aula3);
+			salonesLTI.add(salaServidores);
 			
-			//areaLTI.setSalones(salonesLTI);
+			areaLTI.setSalones(salonesLTI);
 			
 			/*Segunda Area--------------------------------------------------------------*/
 			Area areaBiomedicas = new Area();
 			areaBiomedicas.setId(2L);
-			areaBiomedicas.setNombre("�rea Biom�dicas");
+			areaBiomedicas.setNombre("Area Biomedicas");
 			
 			
 			/*ACA VAN SALONES CREADOS Arriba*/
 			ArrayList<Salon> salonesBiomedica = new ArrayList<>();
 			
-			//salonesBiomedica.add(lab1)
-			//salonesBiomedica.add(aula2)
-			//salonesBiomedica.add(depositoMat)
+			salonesBiomedica.add(lab1);
+			salonesBiomedica.add(aula2);
+			salonesBiomedica.add(depositoMat);
 			
-			//areaBiomedicas.setSalones(salonesBiomedica);
+			areaBiomedicas.setSalones(salonesBiomedica);
 			
 			/*Tercer Area--------------------------------------------------------------*/
 			Area areaIAgro = new Area();
 			areaIAgro.setId(3L);
-			areaIAgro.setNombre("�rea IAgro");
+			areaIAgro.setNombre("Area IAgro");
 			
 			
 			/*ACA VAN SALONES CREADOS Arriba*/
 			ArrayList<Salon> salonesIAgro = new ArrayList<>();
 			
-			//salonesIAgro.add(lab2)
-			//salonesIAgro.add(aula1)
-			//salonesIAgro.add(galponMateriales)
+			salonesIAgro.add(lab2);
+			salonesIAgro.add(aula1);
+			salonesIAgro.add(galponMateriales);
 
-			//areaIAgro.setSalones(salonesIAgro);
+			areaIAgro.setSalones(salonesIAgro);
 			
 			/*ABM--------------------------------------------------------------*/
 			
@@ -459,7 +437,7 @@ public class ClienteUniversidad {
 			try {
 				for (Area area : areasABM) {
 					areaBean.crear(area);
-					System.out.println("Se ha creado exitosamente el �rea: " + area.getNombre());
+					System.out.println("Se ha creado exitosamente el Area: " + area.getNombre());
 				}
 			} catch(ServiciosException e) {
 				System.out.println(e.getMessage()); 
@@ -473,7 +451,7 @@ public class ClienteUniversidad {
 				areaLTI.setNombre("�reaLTIV2.0");
 				areaBean.actualizar(areaLTI);
 				
-				System.out.println("Se ha actualizado exitosamente el �rea " + viejoNombre2 +  " a " + areaLTI.getNombre());
+				System.out.println("Se ha actualizado exitosamente el Area " + viejoNombre2 +  " a " + areaLTI.getNombre());
 			} catch(ServiciosException e) {
 				System.out.println(e.getMessage()); 
 			}
@@ -485,10 +463,35 @@ public class ClienteUniversidad {
 				
 				areaBean.borrar(areaIAgro.getId());
 				
-				System.out.println("Se ha borrado existosamente el �rea: " + viejoNombre2);
+				System.out.println("Se ha borrado existosamente el Area: " + viejoNombre2);
 			} catch(ServiciosException e) {
 				System.out.println(e.getMessage()); 
 			}
+			
+			/*LISTADOS*/
+			
+			
+			List<Area> areasEnBD = areaBean.obtenerTodos();
+			
+			for (Area area : areasEnBD) {
+				System.out.println("\n -------------AREA------------- \n");
+				System.out.println("-" + area.getNombre());
+
+				for (Salon salon : area.getSalones()) {
+					System.out.println("---------SALON DE " + area.getNombre().toUpperCase() + " ---------");
+					System.out.println("-" + salon.getNombre());
+					System.out.println("- Tipo: " + salon.getTipo());
+					System.out.println("- Cap maxima: " + salon.getCapacidadMaxima());
+					
+					for (Material material : salon.getMateriales()) {
+						System.out.println("-----MATERIAL DE " + salon.getNombre().toUpperCase() + " -----");
+						System.out.println("-" + material.getNombre());
+						System.out.println("-" + material.getDescripcion());
+					}
+				}
+			}
+			
+			
 			
 	}
 	

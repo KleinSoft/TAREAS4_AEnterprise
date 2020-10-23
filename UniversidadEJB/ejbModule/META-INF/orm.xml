@@ -9,10 +9,6 @@
 		<table name="SALONES">
 		</table>
 	</entity>
-	<entity class="com.entities.Tipo" access="FIELD">
-		<table name="TIPOS">
-		</table>
-	</entity>
 	<entity class="com.entities.Area" access="FIELD">
 		<table name="AREAS">
 		</table>

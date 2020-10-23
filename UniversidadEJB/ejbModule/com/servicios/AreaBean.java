@@ -56,7 +56,7 @@ public class AreaBean implements AreaBeanRemote {
 	
 	@Override
 	public List<Area> obtenerTodos() {
-	 TypedQuery<Area> query = em.createQuery("SELECT a FROM AREAS a",Area.class);
+	 TypedQuery<Area> query = em.createQuery("SELECT a FROM AREAS a", Area.class);
 	 return query.getResultList();
 	} 
 }
